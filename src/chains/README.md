@@ -1,0 +1,1 @@
+Configurations for different chains as mainnet and testnet.

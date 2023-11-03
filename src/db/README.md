@@ -1,0 +1,1 @@
+Cmmunication with a database for saving blocks and states.

@@ -1,0 +1,1 @@
+Cryptographic utilities as hash functions and signatures.

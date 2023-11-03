@@ -1,0 +1,1 @@
+Blockchain core includes consensus, block structure etc.
