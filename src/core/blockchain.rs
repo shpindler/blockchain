@@ -1,5 +1,5 @@
 use super::block::Block;
-use crate::runtime::transaction::Transaction;
+use crate::runtime::transaction::{Transaction, TransactionData};
 use std::collections::HashMap;
 
 fn now() -> u128 {
@@ -34,12 +34,12 @@ impl Blockchain {
         self.chain.push(new_block);
     }
 
-    pub fn create_transaction(&mut self, sender: String, receiver: String, amount: f32) -> bool {
+    pub fn create_transaction(&mut self, sender: String, receiver: String, amount: f32, data: TransactionData) -> bool {
         if self.accounts.get(&sender).unwrap_or(&0.0) < &amount {
             return false; // Недостаточно средств
         }
 
-        let transaction = Transaction { sender, receiver, amount };
+        let transaction = Transaction { sender, receiver, amount, data: Some(data) };
         self.current_transactions.push(transaction);
         true
     }
@@ -78,6 +78,7 @@ impl Blockchain {
             sender: "0".to_string(),
             receiver: miner_address,
             amount: self.reward,
+            data: None,
         };
         self.current_transactions.push(reward_transaction);
 

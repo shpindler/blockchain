@@ -1,13 +1,33 @@
-extern crate shpindler_blockchain;
-use shpindler_blockchain::core::blockchain::Blockchain;
+// mod cli;
+// mod api;
 
+// use std::thread;
+// use actix_web::{App, HttpServer};
+// use api::routes::configure;
+
+// #[actix_web::main]
 fn main() {
-    let mut blockchain = Blockchain::new();
+    // // Launch the CLI in a separate thread
+    // let cli_handle = thread::spawn(move || {
+    //     cli::run_cli();
+    // });
 
-    blockchain.add_block("First block data".to_string());
-    blockchain.add_block("Second block data".to_string());
+    // // Run the Web API on the main thread
+    // let web_api_server = HttpServer::new(move || {
+    //     App::new().configure(configure)
+    // })
+    // .bind("127.0.0.1:8080")?
+    // .run();
 
-    for block in blockchain.chain {
-        println!("{:?}", block);
-    }
+    // // Await the HTTP server to finish
+    // web_api_server.await?;
+
+    // // Join the CLI thread (assuming you want to wait for it to finish for some reason)
+    // match cli_handle.join() {
+    //     Ok(_) => Ok(()),
+    //     Err(e) => {
+    //         eprintln!("CLI thread ended with an error: {:?}", e);
+    //         Err(std::io::Error::new(std::io::ErrorKind::Other, "CLI thread error"))
+    //     }
+    // }
 }
